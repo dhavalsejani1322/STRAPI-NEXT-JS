@@ -2,6 +2,7 @@
 import { getSingleblog } from '@/api/services/categories';
 import BlogContentWrapper from '@/components/Common/BlogContentWrapper';
 import { Metadata } from 'next';
+import Image from 'next/image';
 
 type Props = {
     params: { slug: string };
@@ -52,7 +53,8 @@ export default async function BlogPost({ params }: Props) {
         <div className="max-w-6xl mx-auto p-6">
             <h1 className="text-3xl font-bold mb-4 font-sans">{Title}</h1>
             {Banner?.url && (
-                <img
+                <Image
+                    fill
                     src={`http://localhost:1337${Banner.url}`}
                     alt={Title}
                     className="rounded-lg w-full h-[400px] mb-6"
