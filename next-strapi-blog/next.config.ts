@@ -2,11 +2,19 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-   
-    domains: ['localhost', 'strapi-server-app-mklz.onrender.com'], // Add your domain here
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
+      {
+        protocol: 'https',
+        hostname: 'strapi-server-app-mklz.onrender.com',
+      },
+    ],
   },
-   eslint: {
-    ignoreDuringBuilds: true, // ✅ Disable ESLint during build
+  eslint: {
+    ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true, // ⚠️ TEMPORARY ONLY

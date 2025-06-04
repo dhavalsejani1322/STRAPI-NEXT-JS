@@ -6,7 +6,7 @@ import QueryString from 'qs';
 
 export const getCategories = async (payload?: Record<string, any>) => {
   try {
-    const response = await strapiApi.get('/categories?pagination[pageSize]=100');
+    const response = await strapiApi.get('api/categories?pagination[pageSize]=100');
     return response.data;
   } catch (error: any) {
     throw error.response?.data || { message: 'Unexpected error occurred' };
@@ -25,7 +25,7 @@ export const getCategories = async (payload?: Record<string, any>) => {
 
 export const getblog = async (categoryId?: string): Promise<{ data: any }> => {
   try {
-    let url = '/blogs?populate=*&pagination[pageSize]=100'; // Adjust endpoint and populate as needed
+    let url = 'api/blogs?populate=*&pagination[pageSize]=100'; // Adjust endpoint and populate as needed
     if (categoryId) {
       url += `&filters[categories][id][$eq]=${categoryId}`;
     }
@@ -49,7 +49,7 @@ export const getSingleblog = async (payload?: { slug?: string }) => {
       populate: '*',
     });
 
-    const response = await strapiApi.get(`/blogs?${query}`);
+    const response = await strapiApi.get(`api/blogs?${query}`);
     return response.data;
   } catch (error: any) {
     throw error.response?.data || { message: 'Unexpected error occurred' };
@@ -61,7 +61,7 @@ export const getSingleblog = async (payload?: { slug?: string }) => {
 
 export const getBlogsByCategory = async (categoryId: number) => {
   try {
-    const response = await strapiApi.get('/blogs?populate=categories&filters[categories][id][$eq]=${categoryId}');
+    const response = await strapiApi.get('api/blogs?populate=categories&filters[categories][id][$eq]=${categoryId}');
     return response.data;
   } catch (error: any) {
     throw error.response?.data || { message: 'Unexpected error occurred' };
@@ -71,7 +71,7 @@ export const getBlogsByCategory = async (categoryId: number) => {
 export const getHirePageSeo = async (urlPath: string) => {
   try {
     const response = await strapiApi.get(
-      `/hire-developers?filters[url][$eq]=${urlPath}&populate=*`
+      `api/hire-developers?filters[url][$eq]=${urlPath}&populate=*`
     );
 
     const item = response.data?.data?.[0];
