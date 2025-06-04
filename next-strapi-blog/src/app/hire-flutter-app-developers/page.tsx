@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { getHirePageSeo } from '@/api/services/categories';
 import { Metadata } from 'next';
 

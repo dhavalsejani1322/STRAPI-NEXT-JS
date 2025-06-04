@@ -1,6 +1,5 @@
-// app/components/Common/MarkdownRenderer.tsx
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
-
 import React, { ReactNode, useEffect, useMemo } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
