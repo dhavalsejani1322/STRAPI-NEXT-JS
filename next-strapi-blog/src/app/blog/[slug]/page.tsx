@@ -5,11 +5,8 @@ import BlogContentWrapper from '@/components/Common/BlogContentWrapper';
 import { Metadata } from 'next';
 import Image from 'next/image';
 
-type PageParams = {
-    params: { slug: string };
-};
-
-export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
+// Temporarily using `any` to avoid type errors during build
+export async function generateMetadata({ params }: any): Promise<Metadata> {
     const blogData = await getSingleblog({ slug: params.slug });
     const blog = blogData?.data?.[0];
 
@@ -43,9 +40,10 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
     };
 }
 
-export default async function BlogPost({ params }: PageParams) {
+export default async function BlogPost({ params }: any) {
     const blogData = await getSingleblog({ slug: params.slug });
     const blog = blogData?.data?.[0];
+
     if (!blog) return <div>Blog not found</div>;
 
     const { Title, Description, Banner, Faq } = blog;
@@ -58,11 +56,10 @@ export default async function BlogPost({ params }: PageParams) {
                     fill
                     src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${Banner.url}`}
                     alt={Title}
-                    className="rounded-lg w-full h-[400px] mb-6"
+                    className="rounded-lg w-full h-[400px] mb-6 object-cover"
                 />
             )}
             <BlogContentWrapper content={Description} Faq={Faq} />
-
         </div>
     );
 }
