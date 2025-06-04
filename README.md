@@ -2,7 +2,7 @@
 
 ## Projects
 
-- `next-strapi-blog/` – Frontend (Next.js)
+- `next-strapi-blog/` – Frontend (Next.js with SEO)
 - `strapi-blog/` – Backend (Strapi CMS v5)
 
 This monorepo uses a simple folder structure to manage frontend and backend together.
