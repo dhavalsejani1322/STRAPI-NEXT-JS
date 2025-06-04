@@ -19,7 +19,9 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     }
 
     const { SEO_Title, SEO_Description, SEO_Keyword, Banner } = blog;
-    const imageUrl = Banner?.url ? `http://localhost:1337${Banner.url}` : undefined;
+    const imageUrl = Banner?.url
+        ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${Banner.url}`
+        : undefined;
 
     return {
         title: SEO_Title,

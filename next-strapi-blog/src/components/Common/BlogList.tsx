@@ -20,7 +20,7 @@ export default function BlogList({ blogs }: { blogs: any }) {
                     const { id, Title, publishedAt, Banner, slug } = blog;
                     const slugs = slugify(slug ?? '');
                     const imageUrl = Banner?.url
-                        ? `http://localhost:1337${Banner.url}`
+                        ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${Banner.url}`
                         : "/placeholder.jpg";
 
                     return (

@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   images: {
    
-    domains: ['localhost'], // Add your domain here
+    domains: ['localhost', 'strapi-server-app-mklz.onrender.com'], // Add your domain here
   },
    eslint: {
     ignoreDuringBuilds: true, // ✅ Disable ESLint during build
