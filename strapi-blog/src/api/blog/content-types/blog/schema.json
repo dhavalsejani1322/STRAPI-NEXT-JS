@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blogs",
+  "info": {
+    "singularName": "blog",
+    "pluralName": "blogs",
+    "displayName": "Blog"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Banner": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "blogs"
+    },
+    "Author": {
+      "type": "string"
+    },
+    "SEO_Title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "SEO_Description": {
+      "type": "text",
+      "required": true,
+      "unique": true
+    },
+    "SEO_Keyword": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Faq": {
+      "type": "component",
+      "component": "faq.question",
+      "repeatable": true
+    }
+  }
+}

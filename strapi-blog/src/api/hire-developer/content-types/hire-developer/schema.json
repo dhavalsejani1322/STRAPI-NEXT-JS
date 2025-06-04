@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hire_developers",
+  "info": {
+    "singularName": "hire-developer",
+    "pluralName": "hire-developers",
+    "displayName": "Hire Developer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "url": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "seo_title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "seo_description": {
+      "type": "text",
+      "required": true,
+      "unique": false
+    },
+    "seo_keyword": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "seo_metaImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  }
+}
