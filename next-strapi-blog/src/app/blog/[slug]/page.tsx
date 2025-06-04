@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { getSingleblog } from '@/api/services/categories';
 import BlogContentWrapper from '@/components/Common/BlogContentWrapper';
